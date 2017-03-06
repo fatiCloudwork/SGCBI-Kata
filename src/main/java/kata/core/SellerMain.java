@@ -1,7 +1,6 @@
-package kata.execution;
+package kata.core;
 
-import kata.core.Kebbab;
-import kata.utils.KebbabFactory;
+import kata.core.*;
 
 import java.util.Scanner;
 
@@ -51,19 +50,28 @@ public class SellerMain {
      * commander en saisissant ses ingrédients
      */
     public void interactiveOrder(){
+
         boolean commandeEnCours = true ;
         while(commandeEnCours){
             Scanner sc = new Scanner(System.in);
 
+            System.out.println("saisir le nom de votre Kebbab ");
+
+            String kebbabName = sc.nextLine();
+
+            Kebbab myKebbab = new Kebbab(kebbabName);
+
             System.out.println("saisir un ingrédient ");
 
-            String ingredient = sc.nextLine();
+            //sc.nextLine();
+            String ingName = sc.nextLine();
 
-            if(ingredient.equals("fin")){
+            if(ingName.equals("fin")){
                 commandeEnCours = false;
             }else{
-                String ing = sc.nextLine();
-                //new Ingredient(ing,);
+
+                Ingredient ingredient = new Ingredient(ingName, IngredientTypeEnum.OTHER);
+                myKebbab.addIngredient(ingredient,0,true);
             }
         }
     }

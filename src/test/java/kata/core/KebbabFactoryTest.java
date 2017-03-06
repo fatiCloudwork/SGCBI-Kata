@@ -1,7 +1,5 @@
 package kata.core;
 
-import kata.execution.IngredientsMenu;
-import kata.utils.KebbabFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

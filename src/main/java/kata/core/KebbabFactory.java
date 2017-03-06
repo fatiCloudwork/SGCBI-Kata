@@ -1,9 +1,4 @@
-package kata.utils;
-
-import kata.core.Ingredient;
-import kata.core.IngredientTypeEnum;
-import kata.core.Kebbab;
-import kata.execution.IngredientsMenu;
+package kata.core;
 
 /**
  * Created by elamraoui.f on 01/03/2017.
@@ -34,7 +29,7 @@ public class KebbabFactory {
         Ingredient fromageChevre = new Ingredient("fromage chèvre", IngredientTypeEnum.CHEESE);
         pescKebbab.addIngredient(fromageChevre,menu.getPositionIngredient("fromage chèvre"),true);
 
-        Ingredient mietteCrabe = new Ingredient("miette de crabe", IngredientTypeEnum.FISH);
+        Ingredient mietteCrabe = new Ingredient("miette de crabe", IngredientTypeEnum.SEAFOOD);
         pescKebbab.addIngredient(mietteCrabe,menu.getPositionIngredient("miette de crabe"),true);
 
         return pescKebbab;

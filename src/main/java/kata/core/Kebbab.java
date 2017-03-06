@@ -8,31 +8,14 @@ import java.util.stream.Collectors;
  */
 public class Kebbab {
 
-    //liste des ingrédients dans l'ordre (tree map pour trier)
+    private String name;
     private Map<Integer, Ingredient> ingredients ;
     private boolean withoutOignon;
-
-    public boolean isWithDoubleCheese() {
-        return withDoubleCheese;
-    }
-
-    public void setWithDoubleCheese(boolean withDoubleCheese) {
-        this.withDoubleCheese = withDoubleCheese;
-    }
-
-    public boolean isWithoutOignon() {
-        return withoutOignon;
-    }
-
-    public void setWithoutOignon(boolean withoutOignon) {
-        this.withoutOignon = withoutOignon;
-    }
-
     private boolean withDoubleCheese;
-    private String name;
 
     public Kebbab(String name) {
         this.name=name;
+        //liste des ingrédients dans l'ordre (tree map pour trier)
         this.ingredients = new TreeMap<Integer, Ingredient>();
         withoutOignon=true;
         withDoubleCheese=false;
@@ -43,12 +26,13 @@ public class Kebbab {
      */
     public void addIngredient(Ingredient ing, int pos, boolean inStock){
 
+        //la gestion de stock doit être gérée indépendemment du kebbab dans un autre module :
+        // ici c'est le vendeur qui décide si l'ingrédient est en stock
         ing.setInStock(inStock);
         if(inStock){
             ing.setPosition(pos);
             ingredients.put(pos, ing);
             //mettre à jour le stock de l'ingrédient (fonctionnalité non demandée)
-
         }
         if (ing.getName().equals("oignons")) {
             withoutOignon = false;
@@ -71,7 +55,7 @@ public class Kebbab {
         boolean result = true ;
 
         for (Map.Entry<Integer, Ingredient> entry : ingredients.entrySet()){
-            if (entry.getValue().isMeatNotFish()){
+            if (entry.getValue().isMeatNotSEAFOOD()){
                 result = false;
                 break;
             }
@@ -104,6 +88,9 @@ public class Kebbab {
             String value = entry.getValue()!=null ? entry.getValue().getName(): " " ;
             result.append(key + " : " + value + "\n");
         }
+
+        //ingredients.forEach((k,v)->result.append(k + " : " + v!= null ? v.getName() : " " + "\n"));
+
         String cheeseOption = withDoubleCheese==true? " yes, " : "no, ";
         String oignonOption = withoutOignon==true? " yes, " : "no, ";
         result.append("Option double fromage :"+ cheeseOption);
@@ -147,5 +134,21 @@ public class Kebbab {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isWithDoubleCheese() {
+        return withDoubleCheese;
+    }
+
+    public void setWithDoubleCheese(boolean withDoubleCheese) {
+        this.withDoubleCheese = withDoubleCheese;
+    }
+
+    public boolean isWithoutOignon() {
+        return withoutOignon;
+    }
+
+    public void setWithoutOignon(boolean withoutOignon) {
+        this.withoutOignon = withoutOignon;
     }
 }

@@ -1,4 +1,4 @@
-package kata.execution;
+package kata.core;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +26,6 @@ public class IngredientsMenu {
         menu.put("cheddar",6);
         menu.put("fromage chèvre",7);
         menu.put("oignons",8);
-
 
     }
 

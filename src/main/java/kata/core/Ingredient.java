@@ -14,7 +14,7 @@ public class Ingredient {
     public Ingredient(String name, IngredientTypeEnum type) {
         this.name = name;
         this.type = type;
-        this.quantity=1;
+        this.quantity=1;//default value
     }
 
     public boolean isInStock() {
@@ -62,14 +62,14 @@ public class Ingredient {
      * @return true si l'ingrédient est de la viande
      */
     public boolean isAllMeat(){
-        return this.type.equals(IngredientTypeEnum.MEAT)|| this.type.equals(IngredientTypeEnum.FISH)? true : false ;
+        return this.type.equals(IngredientTypeEnum.MEAT)|| this.type.equals(IngredientTypeEnum.SEAFOOD)? true : false ;
     }
 
     /**
      *
      * @return true si l'ingrédient est de la viande hors poisson
      */
-    public boolean isMeatNotFish(){
+    public boolean isMeatNotSEAFOOD(){
         return this.type.equals(IngredientTypeEnum.MEAT)? true : false ;
     }
 
