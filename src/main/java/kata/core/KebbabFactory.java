@@ -1,12 +1,17 @@
 package kata.core;
 
+import kata.core.Ingredient;
+import kata.core.IngredientTypeEnum;
+import kata.core.IngredientsMenu;
+import kata.core.Kebbab;
+
 /**
  * Created by elamraoui.f on 01/03/2017.
  */
 public class KebbabFactory {
 
     public static Kebbab makeVegetarianKebbab(IngredientsMenu menu){
-        Kebbab vegeKebbab = new Kebbab("Le végétarien");
+        Kebbab vegeKebbab = new Kebbab("Le végétarien",1);
 
         Ingredient roquette = new Ingredient("roquette", IngredientTypeEnum.VEGETABLE);
         vegeKebbab.addIngredient(roquette,menu.getPositionIngredient("roquette"),true);
@@ -21,7 +26,7 @@ public class KebbabFactory {
     }
 
     public static Kebbab makePescetarienKebbab(IngredientsMenu menu){
-        Kebbab pescKebbab = new Kebbab("Le Pescetarien");
+        Kebbab pescKebbab = new Kebbab("Le Pescetarien",2);
 
         Ingredient laitue = new Ingredient("laitue", IngredientTypeEnum.VEGETABLE);
         pescKebbab.addIngredient(laitue,menu.getPositionIngredient("laitue"),true);
@@ -36,7 +41,7 @@ public class KebbabFactory {
     }
 
     public static Kebbab makeClassicKebbab(IngredientsMenu menu){
-        Kebbab classicKebbab = new Kebbab("The classic");
+        Kebbab classicKebbab = new Kebbab("The classic",3);
 
         Ingredient laitue = new Ingredient("laitue", IngredientTypeEnum.VEGETABLE);
         classicKebbab.addIngredient(laitue,menu.getPositionIngredient("laitue"),true);
@@ -57,7 +62,7 @@ public class KebbabFactory {
     }
 
     public static Kebbab makeDoubleCheeseKebbab(IngredientsMenu menu){
-        Kebbab doubleCheeseKebbab = new Kebbab("Big double cheeeese !!");
+        Kebbab doubleCheeseKebbab = new Kebbab("Big double cheeeese !!",4);
 
         Ingredient laitue = new Ingredient("laitue", IngredientTypeEnum.VEGETABLE);
         doubleCheeseKebbab.addIngredient(laitue,menu.getPositionIngredient("laitue"),true);
@@ -77,7 +82,7 @@ public class KebbabFactory {
     }
 
     public static Kebbab makeOignonLessKebbab(IngredientsMenu menu){
-        Kebbab oigonLessKebbab = new Kebbab("Le sans oigons");
+        Kebbab oigonLessKebbab = new Kebbab("Le sans oigons",5);
 
         Ingredient laitue = new Ingredient("laitue", IngredientTypeEnum.VEGETABLE);
         oigonLessKebbab.addIngredient(laitue,menu.getPositionIngredient("laitue"),true);

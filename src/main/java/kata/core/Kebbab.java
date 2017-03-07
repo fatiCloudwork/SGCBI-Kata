@@ -9,12 +9,14 @@ import java.util.stream.Collectors;
 public class Kebbab {
 
     private String name;
+    private int id;
     private Map<Integer, Ingredient> ingredients ;
     private boolean withoutOignon;
     private boolean withDoubleCheese;
 
-    public Kebbab(String name) {
+    public Kebbab(String name, int id) {
         this.name=name;
+        this.id = id;
         //liste des ingrédients dans l'ordre (tree map pour trier)
         this.ingredients = new TreeMap<Integer, Ingredient>();
         withoutOignon=true;
@@ -118,6 +120,10 @@ public class Kebbab {
     public boolean containsIngredient(String ingredientName){
         List<String> ingredientsNames = ingredients.values().stream().map(s -> s.getName()).collect(Collectors.toList());
         return ingredientsNames.contains(ingredientName);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public Map<Integer, Ingredient> getIngredients() {
